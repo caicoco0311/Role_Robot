@@ -26,7 +26,7 @@ st.markdown(
 
         /* 所有文字都为黑色 */
         h1, h2, h3, h4, h5, h6, p, div, span, label {
-            color: black !important;
+            color: #333333 !important;
         }
 
         /* 输入框与文本区域文字颜色 */
