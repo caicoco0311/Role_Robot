@@ -6,15 +6,38 @@ from openai import OpenAI
 # -----------------------
 st.set_page_config(page_title="Ask Me Anything", layout="wide")
 
-# Custom CSS for background color
+# -----------------------
+# Custom CSS: Background + Font Color
+# -----------------------
 st.markdown(
     """
     <style>
+        /* 整体背景：淡蓝色 */
         body {
-            background-color: #E6F2FF; /* 淡蓝色背景 */
+            background-color: #E6F2FF;
+            color: black; /* 字体改为黑色 */
         }
+
+        /* Streamlit 主体区域 */
         .stApp {
             background-color: #E6F2FF;
+            color: black;
+        }
+
+        /* 所有文字都为黑色 */
+        h1, h2, h3, h4, h5, h6, p, div, span, label {
+            color: black !important;
+        }
+
+        /* 输入框与文本区域文字颜色 */
+        .stTextInput > div > div > input,
+        .stTextArea textarea {
+            color: black !important;
+        }
+
+        /* 按钮文字颜色 */
+        button[kind="primary"] {
+            color: black !important;
         }
     </style>
     """,
@@ -39,7 +62,9 @@ api_key = st.sidebar.text_input(
     placeholder="sk-xxxxxxxxxxxxxxxx",
 )
 
-# Role selection
+# -----------------------
+# Role Selection
+# -----------------------
 roles = {
     "🧠 Philosopher": 
     "You are a philosopher. You respond with depth, questioning assumptions, and exploring meaning. Every answer should provoke reflection — you seek truth, not certainty.",
@@ -69,8 +94,8 @@ st.sidebar.info(role_description)
 # -----------------------
 user_input = st.text_area(
     "💬 Enter your question or idea:",
-    height=100,
-    placeholder="e.g., How can I express sadness in movement?"
+    height=150,
+    placeholder="e.g., Put down your question here..."
 )
 
 # -----------------------
